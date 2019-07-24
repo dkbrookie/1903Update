@@ -144,7 +144,7 @@ Try {
   If ($status -eq 'Unzip') {
     $7zipCheck = Test-Path $7zip -PathType Leaf
     If (!$7zipCheck) {
-      (New-Object System.Net.WebClient).DownloadFile($automate7zipURL,$1903Dir)
+      (New-Object System.Net.WebClient).DownloadFile($automate7zipURL,$7zip)
     }
     Write-Output 'Unpacking 1903 installation files...this will take awhile.' | Out-File $logFile -Append
     &$7zip x $1903Zip -o"$1903Dir" -y | Out-Null
