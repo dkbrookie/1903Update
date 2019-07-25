@@ -67,11 +67,11 @@ If ($osBuild -ge 1903) {
 Try {
   If ((Get-WmiObject win32_operatingsystem | Select-Object -ExpandProperty osarchitecture) -eq '64-bit') {
     ## This is the size of the 64-bit file once downloaded so we can compare later and make sure it's complete
-    $servFile = 4663266257
+    $servFile = 4665165853
     $osVer = 'x64'
   } Else {
     ## This is the size of the 32-bit file once downloaded so we can compare later and make sure it's complete
-    $servFile = 3265111926
+    $servFile = 3266728252
     $osVer = 'x86'
   }
 } Catch {
