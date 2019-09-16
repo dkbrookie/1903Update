@@ -156,7 +156,7 @@ Try {
   If ($status -eq 'Install') {
     Write-Output "The 1903 upgrade installation has now been started silently in the background. No action from you is required, but please note a reboot will be reqired during the installation prcoess. It is highly recommended you save all of your open files! - $dateTime" | Out-File $logFile -Append
     $localFolder= (Get-Location).path
-    $process = Start-Process -FilePath "$1903Dir\Pro$osVer.1903\setup.exe" -ArgumentList "/auto upgrade /quiet" -PassThru
+    $process = Start-Process -FilePath "$1903Dir\Pro$osVer.1903\setup.exe" -ArgumentList "/auto upgrade /quiet /Compat IgnoreWarning /DynamicUpdate disable /copylogs @localpath@\Windows10UpgradeLogs /migratedrivers all" -PassThru
     For($i = 0; $i -le 100; $i = ($i + 1) % 100) {
       Write-Progress -Activity "Installer" -PercentComplete $i -Status "Installing"
       Start-Sleep -Milliseconds 100
